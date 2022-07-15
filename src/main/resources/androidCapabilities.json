@@ -3,5 +3,6 @@
   "automationName": "UIAutomator2",
   "udid" : "XXXXXX",
   "appPackage" : "XX",
-  "appActivity" : "XX"
+  "appActivity" : "XX",
+  "driverUrl": "http://0.0.0.0:4723/wd/hub"
 }
