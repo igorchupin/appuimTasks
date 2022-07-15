@@ -1,0 +1,7 @@
+{
+  "platformName" : "Android",
+  "automationName": "UIAutomator2",
+  "udid" : "XXXXXX",
+  "appPackage" : "XX",
+  "appActivity" : "XX"
+}
