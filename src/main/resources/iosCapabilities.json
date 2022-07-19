@@ -1,8 +1,8 @@
 {
   "platformName" : "iOS",
-  "automationName": "UIAutomator2",
-  "udid" : "XXXXXX",
-  "appPackage" : "XX",
-  "appActivity" : "XX",
-  "driverUrl": "http://0.0.0.0:4723/wd/hub"
+  "automationName": "XCUITest",
+  "udid" : "96efa3c4b67a139e552514f05c7e75c99b40f854",
+  "deviceName" : "iPhone8",
+  "bundleId" : "com.apple.mobilecal",
+  "driverUrl": "http://0.0.0.0:4725/wd/hub"
 }

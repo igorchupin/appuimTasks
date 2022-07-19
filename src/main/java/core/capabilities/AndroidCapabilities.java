@@ -1,6 +1,7 @@
 package core.capabilities;
 
 public class AndroidCapabilities extends Capabilities {
+
     public String platformName;
     public String automationName;
     public String udid;

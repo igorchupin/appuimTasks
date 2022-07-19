@@ -1,9 +1,11 @@
 package core.capabilities;
 
 public class IOSCapabilities extends Capabilities {
-    private String platformName;
-    private String automationName;
-    private String udid;
-    private String appPackage;
-    private String appActivity;
+
+    public String platformName;
+    public String automationName;
+    public String udid;
+    public String bundleId;
+    public String deviceName;
+    public String driverUrl;
 }
