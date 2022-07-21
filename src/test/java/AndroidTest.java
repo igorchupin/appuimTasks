@@ -1,5 +1,4 @@
 import core.Platform;
-import core.capabilities.AndroidCapabilities;
 import core.capabilities.CapabilitiesReader;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
@@ -11,23 +10,28 @@ import pageObjects.AndroidCalendar;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Map;
 
 public class AndroidTest {
     AndroidDriver androidDriver;
     AndroidCalendar androidCalendar;
     String eventName = "New Event test";
 
+
     @Before
     public void driverSetup() throws MalformedURLException {
-        AndroidCapabilities androidCapabilities = (AndroidCapabilities) CapabilitiesReader.capabilitiesRead(Platform.Android);
+        Map<String, String> capabilities = CapabilitiesReader.capabilitiesRead(Platform.Android);
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        URL driverURL = new URL(androidCapabilities.driverUrl);
+        URL driverURL = new URL(capabilities.get("driverUrl"));
 
-        desiredCapabilities.setCapability("platformName", androidCapabilities.platformName);
-        desiredCapabilities.setCapability( "automationName", androidCapabilities.automationName);
-        desiredCapabilities.setCapability("udid", androidCapabilities.udid);
-        desiredCapabilities.setCapability("appPackage", androidCapabilities.appPackage);
-        desiredCapabilities.setCapability("appActivity", androidCapabilities.appActivity);
+        for (String key : capabilities.keySet()) {
+            if (!key.equals("driverUrl")) {
+                desiredCapabilities.setCapability(key, capabilities.get(key));
+            }
+        }
 
         androidDriver = new AndroidDriver(driverURL, desiredCapabilities);
         androidCalendar = new AndroidCalendar(androidDriver);
@@ -35,15 +39,20 @@ public class AndroidTest {
 
     @Test
     public void calendarCreateEventTest () throws InterruptedException {
+      LocalDateTime localDateTimeStart = LocalDateTime.now().plusMinutes(60);
+      LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
+
       androidCalendar.clickPlusButton();
       androidCalendar.enterEventName(eventName);
-      androidCalendar.setStartTime();
-      androidCalendar.setEndTime();
+
+      androidCalendar.setStartTime(localDateTimeStart.getHour(), localDateTimeStart.getMinute());
+      androidCalendar.setEndTime(localDateTimeEnd.getHour(), localDateTimeEnd.getMinute());
       androidCalendar.saveEvent();
 
-      androidCalendar.openEvent();
+      androidCalendar.openEvent(localDateTimeStart);
+
       Assert.assertEquals("incorrect event name", eventName, androidCalendar.getEventName());
-      Assert.assertEquals("incorrect time", androidCalendar.getTimes(), androidCalendar.getEventTimes());
+      Assert.assertEquals("incorrect time", androidCalendar.getTimes(localDateTimeStart, localDateTimeEnd), androidCalendar.getEventTimes());
     }
 
     @After

@@ -1,7 +1,5 @@
 import core.Platform;
-import core.capabilities.AndroidCapabilities;
 import core.capabilities.CapabilitiesReader;
-import core.capabilities.IOSCapabilities;
 import io.appium.java_client.ios.IOSDriver;
 import org.junit.After;
 import org.junit.Assert;
@@ -12,6 +10,8 @@ import pageObjects.IOSCalender;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.util.Map;
 
 public class IOSTest {
 
@@ -21,15 +21,15 @@ public class IOSTest {
 
         @Before
         public void driverSetup() throws MalformedURLException {
-            IOSCapabilities iosCapabilities = (IOSCapabilities) CapabilitiesReader.capabilitiesRead(Platform.iOS);
+            Map<String, String> capabilities = CapabilitiesReader.capabilitiesRead(Platform.iOS);
             DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-            URL driverURL = new URL(iosCapabilities.driverUrl);
+            URL driverURL = new URL(capabilities.get("driverUrl"));
 
-            desiredCapabilities.setCapability("platformName", iosCapabilities.platformName);
-            desiredCapabilities.setCapability( "automationName", iosCapabilities.automationName);
-            desiredCapabilities.setCapability("udid", iosCapabilities.udid);
-            desiredCapabilities.setCapability("bundleId", iosCapabilities.bundleId);
-            desiredCapabilities.setCapability("deviceName", iosCapabilities.deviceName);
+            for (String key : capabilities.keySet()) {
+                if (!key.equals("driverUrl")) {
+                    desiredCapabilities.setCapability(key, capabilities.get(key));
+                }
+            }
 
             iosDriver = new IOSDriver(driverURL, desiredCapabilities);
             iosCalender = new IOSCalender(iosDriver);
@@ -37,16 +37,19 @@ public class IOSTest {
 
         @Test
         public void calendarCreateEventTest () throws InterruptedException {
+            LocalDateTime localDateTimeStart = LocalDateTime.now().plusMinutes(60);
+            LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
+
             iosCalender.clickToday();
             iosCalender.clickAdd();
             iosCalender.setName(eventName);
-            iosCalender.setStartTime();
-            iosCalender.setEndTime();
+            iosCalender.setStartTime(localDateTimeStart.getHour(), localDateTimeStart.getMinute());
+            iosCalender.setEndTime(localDateTimeEnd.getHour(), localDateTimeEnd.getMinute());
             iosCalender.saveEvent();
             iosCalender.openEvent(eventName);
 
             Assert.assertEquals("incorrect event name", eventName, iosCalender.getEventName());
-            Assert.assertEquals("incorrect time", iosCalender.getTimes(), iosCalender.getEventTimes());
+            Assert.assertEquals("incorrect time", iosCalender.getTimes(localDateTimeStart, localDateTimeEnd), iosCalender.getEventTimes());
 
         }
 
