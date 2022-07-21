@@ -14,10 +14,10 @@ public class IOSCalender {
     private By allowWhileUsing = MobileBy.AccessibilityId("Allow While Using App");
     private By listButton = MobileBy.AccessibilityId("List");
     private By todayButton = MobileBy.iOSClassChain("**/XCUIElementTypeButton[`label == \"Today\"`]");
-    private By addButton = MobileBy.AccessibilityId("Add");
+    private By addButton = MobileBy.iOSNsPredicateString("label == \"Add\"");
     private By addEvent = MobileBy.iOSClassChain("**/XCUIElementTypeButton[`label == \"Add\"`][2]");
     private By name = MobileBy.iOSClassChain("**/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]");
-    private By nameField = MobileBy.iOSClassChain("**/XCUIElementTypeTextField[`value == \"Title\"`]");
+    private By nameField = MobileBy.iOSNsPredicateString("value == \"Title\"");
     private By dateFieldStart = MobileBy.iOSClassChain("**/XCUIElementTypeCell[`label CONTAINS 'Starts'`]/XCUIElementTypeOther[`label == \"Date and Time Picker\"`][1]/XCUIElementTypeButton[1]");
     private By timeFieldStart = MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[`label == \"Starts\"`]");
     private By hoursValue = MobileBy.iOSClassChain("**/XCUIElementTypePickerWheel[`value CONTAINS \"o’clock\"`]");
