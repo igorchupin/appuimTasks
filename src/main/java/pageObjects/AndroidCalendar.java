@@ -1,5 +1,6 @@
 package pageObjects;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 
@@ -19,8 +20,8 @@ public class AndroidCalendar {
     private By minuteFiledInput = By.xpath("//android.widget.LinearLayout[2]/android.widget.EditText");
     private By doneButton = By.id("button1");
     private By saveButton = By.xpath("//android.widget.Button[@content-desc=\"Save\"]/android.view.ViewGroup/android.widget.TextView");
-    private String dayIconXpathPattern = "//android.view.View[@text=\"%s\"]"; //android.view.View[@content-desc=" "])[26]
-    private By eventName = By.id("title");
+    private String dayIconPattern = "new UiSelector().text(\"%s\")";
+    private By eventName = MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.samsung.android.calendar:id/title\")");
     private By eventTime = By.id("timeTextView");
     private By deleteButton = By.xpath("//android.widget.Button[@content-desc=\"Delete\"]/android.widget.ImageView");
     private By noEventsText = By.id("no_events_or_tasks_text");
@@ -72,7 +73,7 @@ public class AndroidCalendar {
 
    public void openEvent(LocalDateTime localDateTime) {
        String date = String.format("%s-%s-%s", localDateTime.getYear(), localDateTime.getMonthValue(), localDateTime.getDayOfMonth());
-       driver.findElement(By.xpath(String.format(dayIconXpathPattern, date))).click();
+       driver.findElement(MobileBy.AndroidUIAutomator(String.format(dayIconPattern, date))).click();
    }
 
    public String getEventName () {
