@@ -1,0 +1,12 @@
+Android calendar:
+
+com.samsung.android.calendar
+
+
+com.samsung.android.app.calendar.activity.MainActivity
+
+
+
+
+
+  "udid" : "9AAF9ECE-2A9F-4A3C-8768-1F5678A86277",

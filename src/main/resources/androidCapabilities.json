@@ -1,7 +1,8 @@
 {
   "platformName" : "Android",
   "automationName": "UIAutomator2",
-  "udid" : "XXXXXX",
-  "appPackage" : "XX",
-  "appActivity" : "XX"
+  "udid" : "98897a304a4c415157",
+  "appPackage" : "com.samsung.android.calendar",
+  "appActivity" : "com.samsung.android.app.calendar.activity.MainActivity",
+  "driverUrl": "http://0.0.0.0:4725/wd/hub"
 }
