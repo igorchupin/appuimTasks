@@ -1,27 +1,25 @@
 import core.Platform;
 import core.capabilities.CapabilitiesReader;
 import io.appium.java_client.ios.IOSDriver;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pageObjects.IOSCalender;
 
-import java.net.MalformedURLException;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-public class IOSTest {
+public class IOSTest extends GeneralTest{
 
         IOSDriver iosDriver;
         IOSCalender iosCalender;
         String eventName = "New Event test";
+        Map<String, String> capabilities;
 
         @Before
-        public void driverSetup() throws MalformedURLException {
-            Map<String, String> capabilities = CapabilitiesReader.capabilitiesRead(Platform.iOS);
+        public void driverSetup() throws IOException {
+            capabilities = CapabilitiesReader.capabilitiesRead(Platform.iOS, false);
             DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
             URL driverURL = new URL(capabilities.get("driverUrl"));
 
@@ -39,7 +37,7 @@ public class IOSTest {
         public void calendarCreateEventTest () throws InterruptedException {
             LocalDateTime localDateTimeStart = LocalDateTime.now().plusMinutes(60);
             LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
-
+            iosCalender.clickContinueAndGrantPermission();
             iosCalender.clickToday();
             iosCalender.clickAdd();
             iosCalender.setName(eventName);
@@ -54,8 +52,9 @@ public class IOSTest {
         }
 
         @After
-        public void cleanUP () throws InterruptedException {
+        public void cleanUP () throws InterruptedException, IOException {
           iosCalender.deleteEvent();
+          stopSimulator(Platform.iOS);
           iosDriver.quit();
         }
 }

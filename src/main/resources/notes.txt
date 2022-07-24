@@ -10,3 +10,12 @@ com.samsung.android.app.calendar.activity.MainActivity
 
 
   "udid" : "9AAF9ECE-2A9F-4A3C-8768-1F5678A86277",
+
+
+
+  appium -g ./appium_log.log --debug-log-spacing --port 4725 LOCALE -U emulator-5554 --platform-name Android --automation-name UIAutomator2 unlockType 'pin' unlockKey '11111'
+
+
+  pkill -9 -f appium --- kill server
+
+sh adb emu kill;

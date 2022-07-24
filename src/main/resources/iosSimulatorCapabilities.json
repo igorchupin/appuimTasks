@@ -1,0 +1,10 @@
+{
+  "platformName" : "iOS",
+  "automationName": "XCUITest",
+  "udid" : "9AAF9ECE-2A9F-4A3C-8768-1F5678A86277",
+  "deviceName" : "iPhone8 Simulator",
+  "bundleId" : "com.apple.mobilecal",
+  "driverUrl": "http://0.0.0.0:4725/wd/hub",
+  "fullReset" : "true",
+  "locale" : "fr_BY"
+}
