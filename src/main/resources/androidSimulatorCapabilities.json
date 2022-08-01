@@ -1,0 +1,12 @@
+{
+  "platformName" : "Android",
+  "automationName": "UIAutomator2",
+  "udid" : "emulator-5554",
+  "deviceName" : "Pixel_XL_API_30",
+  "appPackage" : "com.android.calendar",
+  "appActivity" : ".AllInOneActivity t24",
+  "driverUrl": "http://0.0.0.0:4725/wd/hub",
+  "unlockType": "pin",
+  "unlockKey" : "11111",
+  "fastReset" : "true"
+}

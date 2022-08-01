@@ -1,0 +1,192 @@
+2022-07-26 12:47:27:021 [Appium] Welcome to Appium v1.22.3
+2022-07-26 12:47:27:022 [Appium] Non-default server args:
+2022-07-26 12:47:27:022 [Appium]   port: 4725
+2022-07-26 12:47:27:022 [Appium]   logFile: ./appium_log.log
+2022-07-26 12:47:27:022 [Appium]   debugLogSpacing: true
+2022-07-26 12:47:27:040 [Appium] Appium REST http interface listener started on 0.0.0.0:4725
+2022-07-26 12:47:39:018 [HTTP] Request idempotency key: 07082bfe-300c-485c-b1ea-ee5689efb50d
+2022-07-26 12:47:39:034 [HTTP] --> POST /wd/hub/session
+2022-07-26 12:47:39:034 [HTTP] {"desiredCapabilities":{"appActivity":".AllInOneActivity t24","appPackage":"com.android.calendar","automationName":"UIAutomator2","unlockType":"pin","fastReset":"true","platformName":"Android","udid":"emulator-5554","unlockKey":"11111","deviceName":"Pixel_XL_API_30"},"capabilities":{"firstMatch":[{"appium:appActivity":".AllInOneActivity t24","appium:appPackage":"com.android.calendar","appium:automationName":"UIAutomator2","appium:deviceName":"Pixel_XL_API_30","fastReset":"true","platformName":"android","appium:udid":"emulator-5554","appium:unlockKey":"11111","appium:unlockType":"pin"}]}}
+2022-07-26 12:47:39:036 [W3C] Calling AppiumDriver.createSession() with args: [{"appActivity":".AllInOneActivity t24","appPackage":"com.android.calendar","automationName":"UIAutomator2","unlockType":"pin","fastReset":"true","platformName":"Android","udid":"emulator-5554","unlockKey":"11111","deviceName":"Pixel_XL_API_30"},null,{"firstMatch":[{"appium:appActivity":".AllInOneActivity t24","appium:appPackage":"com.android.calendar","appium:automationName":"UIAutomator2","appium:deviceName":"Pixel_XL_API_30","fastReset":"true","platformName":"android","appium:udid":"emulator-5554","appium:unlockKey":"11111","appium:unlockType":"pin"}]}]
+2022-07-26 12:47:39:036 [BaseDriver] Event 'newSessionRequested' logged at 1658839659036 (15:47:39 GMT+0300 (Moscow Standard Time))
+2022-07-26 12:47:39:039 [BaseDriver] The following capabilities are not standard capabilities and should have an extension prefix:
+2022-07-26 12:47:39:039 [BaseDriver]   fastReset
+2022-07-26 12:47:39:264 [Appium] Appium v1.22.3 creating new AndroidUiautomator2Driver (v1.70.1) session
+2022-07-26 12:47:39:267 [BaseDriver] W3C capabilities and MJSONWP desired capabilities were provided
+2022-07-26 12:47:39:267 [BaseDriver] Creating session with W3C capabilities: {
+2022-07-26 12:47:39:267 [BaseDriver]   "alwaysMatch": {
+2022-07-26 12:47:39:267 [BaseDriver]     "appium:fastReset": "true",
+2022-07-26 12:47:39:267 [BaseDriver]     "platformName": "android",
+2022-07-26 12:47:39:268 [BaseDriver]     "appium:appActivity": ".AllInOneActivity t24",
+2022-07-26 12:47:39:268 [BaseDriver]     "appium:appPackage": "com.android.calendar",
+2022-07-26 12:47:39:268 [BaseDriver]     "appium:automationName": "UIAutomator2",
+2022-07-26 12:47:39:268 [BaseDriver]     "appium:deviceName": "Pixel_XL_API_30",
+2022-07-26 12:47:39:268 [BaseDriver]     "appium:udid": "emulator-5554",
+2022-07-26 12:47:39:268 [BaseDriver]     "appium:unlockKey": "11111",
+2022-07-26 12:47:39:268 [BaseDriver]     "appium:unlockType": "pin"
+2022-07-26 12:47:39:268 [BaseDriver]   },
+2022-07-26 12:47:39:268 [BaseDriver]   "firstMatch": [
+2022-07-26 12:47:39:268 [BaseDriver]     {}
+2022-07-26 12:47:39:268 [BaseDriver]   ]
+2022-07-26 12:47:39:268 [BaseDriver] }
+2022-07-26 12:47:39:274 [BaseDriver] The following capabilities were provided, but are not recognized by Appium:
+2022-07-26 12:47:39:274 [BaseDriver]   fastReset
+2022-07-26 12:47:39:274 [BaseDriver] Session created with session id: 3b83bda8-3860-4dd4-b71c-d8f1f44f8f75
+2022-07-26 12:47:39:274 [UiAutomator2] Starting 'com.android.calendar' directly on the device
+2022-07-26 12:47:39:280 [ADB] Found 1 'build-tools' folders under '/Users/testadmin/Library/Android/sdk' (newest first):
+2022-07-26 12:47:39:280 [ADB]     /Users/testadmin/Library/Android/sdk/build-tools/32.0.0
+2022-07-26 12:47:39:281 [ADB] Using 'adb' from '/Users/testadmin/Library/Android/sdk/platform-tools/adb'
+2022-07-26 12:47:39:281 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 start-server'
+2022-07-26 12:47:39:435 [AndroidDriver] Retrieving device list
+2022-07-26 12:47:39:436 [ADB] Trying to find a connected android device
+2022-07-26 12:47:39:436 [ADB] Getting connected devices
+2022-07-26 12:47:39:456 [ADB] Connected devices: [{"udid":"emulator-5554","state":"device"}]
+2022-07-26 12:47:39:457 [AndroidDriver] Using device: emulator-5554
+2022-07-26 12:47:39:460 [ADB] Using 'adb' from '/Users/testadmin/Library/Android/sdk/platform-tools/adb'
+2022-07-26 12:47:39:460 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 start-server'
+2022-07-26 12:47:39:481 [ADB] Setting device id to emulator-5554
+2022-07-26 12:47:39:481 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell getprop ro.build.version.sdk'
+2022-07-26 12:47:39:607 [ADB] Current device property 'ro.build.version.sdk': 30
+2022-07-26 12:47:39:608 [ADB] Getting device platform version
+2022-07-26 12:47:39:608 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell getprop ro.build.version.release'
+2022-07-26 12:47:39:651 [ADB] Current device property 'ro.build.version.release': 11
+2022-07-26 12:47:39:651 [ADB] Device API level: 30
+2022-07-26 12:47:39:651 [UiAutomator2] Relaxing hidden api policy
+2022-07-26 12:47:39:652 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell 'settings put global hidden_api_policy_pre_p_apps 1;settings put global hidden_api_policy_p_apps 1;settings put global hidden_api_policy 1''
+2022-07-26 12:47:39:997 [AndroidDriver] No app sent in, not parsing package/activity
+2022-07-26 12:47:39:998 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 wait-for-device'
+2022-07-26 12:47:40:013 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell echo ping'
+2022-07-26 12:47:40:052 [AndroidDriver] Pushing settings apk to device...
+2022-07-26 12:47:40:053 [ADB] Getting install status for io.appium.settings
+2022-07-26 12:47:40:053 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package io.appium.settings'
+2022-07-26 12:47:40:154 [ADB] 'io.appium.settings' is installed
+2022-07-26 12:47:40:155 [ADB] Getting package info for 'io.appium.settings'
+2022-07-26 12:47:40:155 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package io.appium.settings'
+2022-07-26 12:47:40:256 [ADB] The version name of the installed 'io.appium.settings' is greater or equal to the application version name ('3.4.0' >= '3.4.0')
+2022-07-26 12:47:40:257 [ADB] There is no need to install/upgrade '/usr/local/lib/node_modules/appium/node_modules/io.appium.settings/apks/settings_apk-debug.apk'
+2022-07-26 12:47:40:258 [ADB] Getting IDs of all 'io.appium.settings' processes
+2022-07-26 12:47:40:259 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell 'pgrep --help; echo $?''
+2022-07-26 12:47:40:311 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell pgrep -f \(\[\[:blank:\]\]\|\^\)io\.appium\.settings\(\[\[:blank:\]\]\|\$\)'
+2022-07-26 12:47:40:544 [AndroidDriver] io.appium.settings is already running. There is no need to reset its permissions.
+2022-07-26 12:47:40:545 [Logcat] Starting logs capture with command: /Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 logcat -v threadtime
+2022-07-26 12:47:40:608 [UiAutomator2] Forwarding UiAutomator2 Server port 6790 to local port 8200
+2022-07-26 12:47:40:608 [ADB] Forwarding system: 8200 to device: 6790
+2022-07-26 12:47:40:609 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 forward tcp:8200 tcp:6790'
+2022-07-26 12:47:40:631 [ADB] Getting install status for io.appium.uiautomator2.server
+2022-07-26 12:47:40:631 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package io.appium.uiautomator2.server'
+2022-07-26 12:47:40:853 [ADB] 'io.appium.uiautomator2.server' is installed
+2022-07-26 12:47:40:854 [ADB] Getting package info for 'io.appium.uiautomator2.server'
+2022-07-26 12:47:40:854 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package io.appium.uiautomator2.server'
+2022-07-26 12:47:41:176 [ADB] The version name of the installed 'io.appium.uiautomator2.server' is greater or equal to the application version name ('4.27.0' >= '4.27.0')
+2022-07-26 12:47:41:177 [UiAutomator2] io.appium.uiautomator2.server installation state: sameVersionInstalled
+2022-07-26 12:47:41:177 [ADB] Checking app cert for /usr/local/lib/node_modules/appium/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v4.27.0.apk
+2022-07-26 12:47:41:219 [ADB] Using 'apksigner.jar' from '/Users/testadmin/Library/Android/sdk/build-tools/32.0.0/lib/apksigner.jar'
+2022-07-26 12:47:41:220 [ADB] Starting apksigner: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin/java -Xmx1024M -Xss1m -jar /Users/testadmin/Library/Android/sdk/build-tools/32.0.0/lib/apksigner.jar verify --print-certs /usr/local/lib/node_modules/appium/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v4.27.0.apk
+2022-07-26 12:47:42:218 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
+2022-07-26 12:47:42:218 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
+2022-07-26 12:47:42:218 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
+2022-07-26 12:47:42:218 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
+2022-07-26 12:47:42:218 [ADB] 
+2022-07-26 12:47:42:219 [ADB] sha256 hash did match for 'appium-uiautomator2-server-v4.27.0.apk'
+2022-07-26 12:47:42:219 [ADB] '/usr/local/lib/node_modules/appium/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v4.27.0.apk' is signed with the default certificate
+2022-07-26 12:47:42:219 [ADB] Getting install status for io.appium.uiautomator2.server.test
+2022-07-26 12:47:42:219 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package io.appium.uiautomator2.server.test'
+2022-07-26 12:47:42:384 [ADB] 'io.appium.uiautomator2.server.test' is installed
+2022-07-26 12:47:42:384 [ADB] Checking app cert for /usr/local/lib/node_modules/appium/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk
+2022-07-26 12:47:42:388 [ADB] Starting apksigner: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin/java -Xmx1024M -Xss1m -jar /Users/testadmin/Library/Android/sdk/build-tools/32.0.0/lib/apksigner.jar verify --print-certs /usr/local/lib/node_modules/appium/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk
+2022-07-26 12:47:42:798 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
+2022-07-26 12:47:42:799 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
+2022-07-26 12:47:42:799 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
+2022-07-26 12:47:42:799 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
+2022-07-26 12:47:42:799 [ADB] 
+2022-07-26 12:47:42:799 [ADB] sha256 hash did match for 'appium-uiautomator2-server-debug-androidTest.apk'
+2022-07-26 12:47:42:799 [ADB] '/usr/local/lib/node_modules/appium/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk' is signed with the default certificate
+2022-07-26 12:47:42:799 [UiAutomator2] Server packages are not going to be (re)installed
+2022-07-26 12:47:42:801 [UiAutomator2] Waiting up to 30000ms for services to be available
+2022-07-26 12:47:42:802 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell pm list instrumentation'
+2022-07-26 12:47:42:907 [UiAutomator2] Instrumentation target 'io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner' is available
+2022-07-26 12:47:42:909 [ADB] Adding packages ["io.appium.settings","io.appium.uiautomator2.server","io.appium.uiautomator2.server.test"] to Doze whitelist
+2022-07-26 12:47:42:909 [ADB] Got the following command chunks to execute: [["dumpsys","deviceidle","whitelist","+io.appium.settings",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server.test",";"]]
+2022-07-26 12:47:42:909 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys deviceidle whitelist +io.appium.settings ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server.test ;'
+2022-07-26 12:47:43:045 [UiAutomator2] No app capability. Assuming it is already on the device
+2022-07-26 12:47:43:045 [ADB] Getting install status for com.android.calendar
+2022-07-26 12:47:43:046 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys package com.android.calendar'
+2022-07-26 12:47:43:105 [ADB] 'com.android.calendar' is installed
+2022-07-26 12:47:43:106 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am force-stop com.android.calendar'
+2022-07-26 12:47:43:190 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell pm clear com.android.calendar'
+2022-07-26 12:47:43:476 [AndroidDriver] Performed fast reset on the installed 'com.android.calendar' application (stop and clear)
+2022-07-26 12:47:43:477 [UiAutomator2] Performing shallow cleanup of automation leftovers
+2022-07-26 12:47:43:527 [UiAutomator2] No obsolete sessions have been detected (socket hang up)
+2022-07-26 12:47:43:527 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am force-stop io.appium.uiautomator2.server.test'
+2022-07-26 12:47:43:811 [UiAutomator2] Starting UIAutomator2 server 4.27.0
+2022-07-26 12:47:43:811 [UiAutomator2] Using UIAutomator2 server from '/usr/local/lib/node_modules/appium/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-v4.27.0.apk' and test from '/usr/local/lib/node_modules/appium/node_modules/appium-uiautomator2-server/apks/appium-uiautomator2-server-debug-androidTest.apk'
+2022-07-26 12:47:43:812 [UiAutomator2] Waiting up to 30000ms for UiAutomator2 to be online...
+2022-07-26 12:47:43:812 [ADB] Creating ADB subprocess with args: ["-P",5037,"-s","emulator-5554","shell","am","instrument","-w","-e","disableAnalytics",true,"io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner"]
+2022-07-26 12:47:43:818 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-07-26 12:47:43:819 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2022-07-26 12:47:43:843 [WD Proxy] socket hang up
+2022-07-26 12:47:44:844 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-07-26 12:47:44:844 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2022-07-26 12:47:44:849 [WD Proxy] socket hang up
+2022-07-26 12:47:45:850 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-07-26 12:47:45:851 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2022-07-26 12:47:45:860 [WD Proxy] socket hang up
+2022-07-26 12:47:46:141 [Instrumentation] io.appium.uiautomator2.server.test.AppiumUiAutomator2Server:
+2022-07-26 12:47:46:861 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-07-26 12:47:46:861 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2022-07-26 12:47:46:867 [WD Proxy] socket hang up
+2022-07-26 12:47:47:868 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-07-26 12:47:47:868 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8200/wd/hub/status] with no body
+2022-07-26 12:47:48:004 [WD Proxy] Got response with status 200: {"sessionId":"None","value":{"message":"UiAutomator2 Server is ready to accept commands","ready":true}}
+2022-07-26 12:47:48:004 [UiAutomator2] The initialization of the instrumentation process took 4192ms
+2022-07-26 12:47:48:004 [WD Proxy] Matched '/session' to command name 'createSession'
+2022-07-26 12:47:48:004 [WD Proxy] Proxying [POST /session] to [POST http://127.0.0.1:8200/wd/hub/session] with body: {"capabilities":{"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"android","fastReset":"true","appActivity":".AllInOneActivity t24","appPackage":"com.android.calendar","automationName":"UIAutomator2","deviceName":"Pixel_XL_API_30","udid":"emulator-5554","unlockKey":"11111","unlockType":"pin"},"platformName":"android","fastReset":"true","appActivity":".AllInOneActivity t24","appPackage":"com.android.calendar","automationName":"UIAutomator2","deviceName":"emulator-5554","udid":"emulator-5554","unlockKey":"11111","unlockType":"pin","deviceUDID":"emulator-5554"}],"alwaysMatch":{}}}
+2022-07-26 12:47:48:039 [WD Proxy] Got response with status 200: {"sessionId":"fbf9a859-753f-4c40-b642-8d1a31d3aa4a","value":{"capabilities":{"firstMatch":[{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"android","fastReset":"true","appActivity":".AllInOneActivity t24","appPackage":"com.android.calendar","automationName":"UIAutomator2","deviceName":"Pixel_XL_API_30","udid":"emulator-5554","unlockKey":"11111","unlockType":"pin"},"platformName":"android","fastReset":"true","appActivity":".AllInOneActivity t24","appPackage":"com.android.calendar","automationName":"UIAutomator2","deviceName":"emulator-5554","udid":"emulator-5554","unlockKey":"11111","unlockType":"pin","deviceUDID":"emulator-5554"}],"alwaysMatch":{}},"sessionId":"fbf9a859-753f-4c40-b642-8d1a31d3aa4a"}}
+2022-07-26 12:47:48:039 [WD Proxy] Determined the downstream protocol as 'W3C'
+2022-07-26 12:47:48:049 [WD Proxy] Proxying [GET /appium/device/info] to [GET http://127.0.0.1:8200/wd/hub/session/fbf9a859-753f-4c40-b642-8d1a31d3aa4a/appium/device/info] with no body
+2022-07-26 12:47:48:092 [WD Proxy] Got response with status 200: {"sessionId":"fbf9a859-753f-4c40-b642-8d1a31d3aa4a","value":{"androidId":"666078c7ede08a30","apiVersion":"30","bluetooth":{"state":"ON"},"brand":"Android","carrierName":"Android","displayDensity":560,"locale":"en_US","manufacturer":"unknown","model":"Android SDK built for x86","networks":[{"capabilities":{"SSID":null,"linkDownBandwidthKbps":141000,"linkUpstreamBandwidthKbps":141000,"networkCapabilities":"NET_CAPABILITY_NOT_METERED,NET_CAPABILITY_INTERNET,NET_CAPABILITY_NOT_RESTRICTED,NET_CAPABILITY_TRUSTED,NET_CAPABILITY_NOT_VPN,NET_CAPABILITY_VALIDATED,NET_CAPABILITY_NOT_ROAMING,NET_CAPABILITY_FOREGROUND,NET_CAPABILITY_NOT_CONGESTED,NET_CAPABILITY_NOT_SUSPENDED","signalStrength":-30,"transportTypes":"TRANSPORT_WIFI"},"detailedState":"CONNECTED","extraInfo":"","isAvailable":true,"isConnected":true,"isFailover":false,"isRoaming":false,"state":"CONNECTED","subtype":0,"subtypeName":"","type":1,"typeName":"WIFI"},{"capabilities":{"SSID":null,"linkDownBandwidthKbps":30000,"linkUpstreamBandwidthKbps":15000,"netw...
+2022-07-26 12:47:48:093 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell dumpsys window'
+2022-07-26 12:47:48:157 [AndroidDriver] Screen already unlocked, doing nothing
+2022-07-26 12:47:48:157 [UiAutomator2] Starting 'com.android.calendar/.AllInOneActivity t24 and waiting for 'com.android.calendar/.AllInOneActivity t24'
+2022-07-26 12:47:48:158 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start -W -n 'com.android.calendar/.AllInOneActivity t24' -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000'
+2022-07-26 12:47:48:979 [WD Proxy] Proxying [GET /appium/device/pixel_ratio] to [GET http://127.0.0.1:8200/wd/hub/session/fbf9a859-753f-4c40-b642-8d1a31d3aa4a/appium/device/pixel_ratio] with no body
+2022-07-26 12:47:48:993 [WD Proxy] Got response with status 200: {"sessionId":"fbf9a859-753f-4c40-b642-8d1a31d3aa4a","value":3.5}
+2022-07-26 12:47:48:994 [WD Proxy] Matched '/appium/device/system_bars' to command name 'getSystemBars'
+2022-07-26 12:47:48:994 [WD Proxy] Proxying [GET /appium/device/system_bars] to [GET http://127.0.0.1:8200/wd/hub/session/fbf9a859-753f-4c40-b642-8d1a31d3aa4a/appium/device/system_bars] with no body
+2022-07-26 12:47:49:003 [WD Proxy] Got response with status 200: {"sessionId":"fbf9a859-753f-4c40-b642-8d1a31d3aa4a","value":{"statusBar":84}}
+2022-07-26 12:47:49:003 [WD Proxy] Matched '/window/current/size' to command name 'getWindowSize'
+2022-07-26 12:47:49:004 [WD Proxy] Proxying [GET /window/current/size] to [GET http://127.0.0.1:8200/wd/hub/session/fbf9a859-753f-4c40-b642-8d1a31d3aa4a/window/current/size] with no body
+2022-07-26 12:47:49:012 [WD Proxy] Got response with status 200: {"sessionId":"fbf9a859-753f-4c40-b642-8d1a31d3aa4a","value":{"height":2392,"width":1440}}
+2022-07-26 12:47:49:012 [Appium] New AndroidUiautomator2Driver session created successfully, session 3b83bda8-3860-4dd4-b71c-d8f1f44f8f75 added to master session list
+2022-07-26 12:47:49:013 [BaseDriver] Event 'newSessionStarted' logged at 1658839669013 (15:47:49 GMT+0300 (Moscow Standard Time))
+2022-07-26 12:47:49:013 [W3C (3b83bda8)] Cached the protocol value 'W3C' for the new session 3b83bda8-3860-4dd4-b71c-d8f1f44f8f75
+2022-07-26 12:47:49:013 [W3C (3b83bda8)] Responding to client with driver.createSession() result: {"capabilities":{"platform":"LINUX","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"android","fastReset":"true","appActivity":".AllInOneActivity t24","appPackage":"com.android.calendar","automationName":"UIAutomator2","deviceName":"Pixel_XL_API_30","udid":"emulator-5554","unlockKey":"11111","unlockType":"pin"},"platformName":"android","fastReset":"true","appActivity":".AllInOneActivity t24","appPackage":"com.android.calendar","automationName":"UIAutomator2","deviceName":"emulator-5554","udid":"emulator-5554","unlockKey":"11111","unlockType":"pin","deviceUDID":"emulator-5554","deviceApiLevel":30,"platformVersion":"11","deviceScreenSize":"1440x2560","deviceScreenDensity":560,"deviceModel":"Android SDK built for x86","deviceManufacturer":"unknown","pixelRatio":3.5,"statBarHeight":84,"viewportRect":{"left":0,"top":84,"width":1440,"height":2308}}}
+2022-07-26 12:47:49:016 [HTTP] <-- POST /wd/hub/session 200 9981 ms - 1069
+2022-07-26 12:47:49:016 [HTTP] 
+2022-07-26 12:47:49:087 [HTTP] --> DELETE /wd/hub/session/3b83bda8-3860-4dd4-b71c-d8f1f44f8f75
+2022-07-26 12:47:49:087 [HTTP] {}
+2022-07-26 12:47:49:088 [W3C (3b83bda8)] Calling AppiumDriver.deleteSession() with args: ["3b83bda8-3860-4dd4-b71c-d8f1f44f8f75"]
+2022-07-26 12:47:49:088 [BaseDriver] Event 'quitSessionRequested' logged at 1658839669088 (15:47:49 GMT+0300 (Moscow Standard Time))
+2022-07-26 12:47:49:088 [Appium] Removing session 3b83bda8-3860-4dd4-b71c-d8f1f44f8f75 from our master session list
+2022-07-26 12:47:49:089 [UiAutomator2] Deleting UiAutomator2 session
+2022-07-26 12:47:49:089 [UiAutomator2] Deleting UiAutomator2 server session
+2022-07-26 12:47:49:089 [WD Proxy] Matched '/' to command name 'deleteSession'
+2022-07-26 12:47:49:089 [WD Proxy] Proxying [DELETE /] to [DELETE http://127.0.0.1:8200/wd/hub/session/fbf9a859-753f-4c40-b642-8d1a31d3aa4a] with no body
+2022-07-26 12:47:49:103 [WD Proxy] Got response with status 200: {"sessionId":"fbf9a859-753f-4c40-b642-8d1a31d3aa4a","value":null}
+2022-07-26 12:47:49:104 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am force-stop com.android.calendar'
+2022-07-26 12:47:49:204 [Logcat] Stopping logcat capture
+2022-07-26 12:47:49:207 [ADB] Removing forwarded port socket connection: 8200 
+2022-07-26 12:47:49:207 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 forward --remove tcp:8200'
+2022-07-26 12:47:49:223 [UiAutomator2] Restoring hidden api policy to the device default configuration
+2022-07-26 12:47:49:223 [ADB] Running '/Users/testadmin/Library/Android/sdk/platform-tools/adb -P 5037 -s emulator-5554 shell 'settings delete global hidden_api_policy_pre_p_apps;settings delete global hidden_api_policy_p_apps;settings delete global hidden_api_policy''
+2022-07-26 12:47:49:231 [Instrumentation] .
+2022-07-26 12:47:49:347 [Instrumentation] Time: 3.095
+2022-07-26 12:47:49:347 [Instrumentation] 
+2022-07-26 12:47:49:347 [Instrumentation] OK (1 test)
+2022-07-26 12:47:49:396 [BaseDriver] Event 'quitSessionFinished' logged at 1658839669396 (15:47:49 GMT+0300 (Moscow Standard Time))
+2022-07-26 12:47:49:396 [W3C (3b83bda8)] Received response: null
+2022-07-26 12:47:49:396 [W3C (3b83bda8)] But deleting session, so not returning
+2022-07-26 12:47:49:397 [W3C (3b83bda8)] Responding to client with driver.deleteSession() result: null
+2022-07-26 12:47:49:398 [HTTP] <-- DELETE /wd/hub/session/3b83bda8-3860-4dd4-b71c-d8f1f44f8f75 200 311 ms - 14
+2022-07-26 12:47:49:398 [HTTP] 
+2022-07-26 12:47:52:706 [Instrumentation] The process has exited with code 0
