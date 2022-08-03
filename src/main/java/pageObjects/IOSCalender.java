@@ -1,14 +1,20 @@
 package pageObjects;
 
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 
 import java.time.LocalDateTime;
 
+import static io.appium.java_client.touch.offset.ElementOption.element;
+
 public class IOSCalender {
 
     IOSDriver driver;
+    TouchAction touchAction;
 
     private By continueButton = MobileBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"SplashScreen\"`]/XCUIElementTypeOther/XCUIElementTypeOther[2]");
     private By allowWhileUsing = MobileBy.AccessibilityId("Allow While Using App");
@@ -29,10 +35,17 @@ public class IOSCalender {
     private By eventTime = MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[`label CONTAINS \"from\"`]");
     private By deleteButton = MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[`label == \"Delete Event\"`]");
     private By cofirmDelete = MobileBy.iOSClassChain("**/XCUIElementTypeButton[`label == \"Delete Event\"`][2]");
+    private String eventCellPattern = "**/XCUIElementTypeCell[`label BEGINSWITH \"%s\"`]";
+    private By deleteButtonFromCell = MobileBy.iOSClassChain("**/XCUIElementTypeButton[`label == \"Delete Event\"`]");
+    private By locationField = MobileBy.iOSClassChain("**/XCUIElementTypeStaticText[`label == \"Location\"`]");
+    private By locationInput = MobileBy.iOSClassChain("**/XCUIElementTypeSearchField[`label == \"Enter Location\"`]");
+    private By eventLocation = MobileBy.iOSClassChain("**/XCUIElementTypeTable[`name == \"EventDetailsContainer\"`]/XCUIElementTypeCell/XCUIElementTypeTextView");
+
 
 
     public IOSCalender (IOSDriver driver) {
         this.driver = driver;
+        touchAction = new TouchAction(driver);
     }
 /*
     public void clickContinueAndGrantPermission() throws InterruptedException {
@@ -87,6 +100,7 @@ public class IOSCalender {
     }
 
     public String getEventName () {
+        touchAction.press(PointOption.point(100, 100)).moveTo(PointOption.point(0,0)).release().perform();
         return driver.findElement(eventName).getAttribute("name");
     }
 
@@ -94,11 +108,35 @@ public class IOSCalender {
         return driver.findElement(eventTime).getAttribute("name");
     }
 
-    public void deleteEvent() throws InterruptedException {
+    public void setLocation (String location) throws InterruptedException {
+        driver.findElement(locationField).click();
+        Thread.sleep(3500);
+        driver.findElement(locationInput).sendKeys(location);
+        driver.findElement(MobileBy.AccessibilityId(location)).click();
+    }
+
+    public String getLocationName () {
+        return driver.findElement(eventLocation).getText();
+    }
+
+    public void deleteEvent(String name) throws InterruptedException {
+        driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeButton[1]")).click();
+        Thread.sleep(3500);
+        driver.findElement(listButton).click();
+        Thread.sleep(3500);
+        touchAction.longPress(LongPressOptions.longPressOptions().withElement(element(driver.findElement(MobileBy.iOSClassChain(String.format(eventCellPattern, name)))))).release().perform();
+        Thread.sleep(3500);
+        driver.findElement(deleteButtonFromCell).click();
+        Thread.sleep(3500);
+        driver.findElement(deleteButtonFromCell).click();
+        Thread.sleep(3500);
+        driver.findElement(listButton).click();
+
+        /*
         driver.findElement(deleteButton).click();
         Thread.sleep(500);
         driver.findElement(cofirmDelete).click();
-        Thread.sleep(500);
+        Thread.sleep(500); */
     }
 
     public String getTimes (LocalDateTime start, LocalDateTime end) {

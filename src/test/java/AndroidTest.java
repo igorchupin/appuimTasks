@@ -10,15 +10,14 @@ import pageObjects.AndroidCalendar;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
-public class AndroidTest {
+public class AndroidTest extends GeneralTest {
     AndroidDriver androidDriver;
     AndroidCalendar androidCalendar;
     String eventName = "New Event test";
+    String location = "Minsk";
 
 
     @Before
@@ -47,12 +46,15 @@ public class AndroidTest {
 
       androidCalendar.setStartTime(localDateTimeStart.getHour(), localDateTimeStart.getMinute());
       androidCalendar.setEndTime(localDateTimeEnd.getHour(), localDateTimeEnd.getMinute());
+      androidCalendar.setLocation(location);
       androidCalendar.saveEvent();
 
       androidCalendar.openEvent(localDateTimeStart);
 
       Assert.assertEquals("incorrect event name", eventName, androidCalendar.getEventName());
       Assert.assertEquals("incorrect time", androidCalendar.getTimes(localDateTimeStart, localDateTimeEnd), androidCalendar.getEventTimes());
+      Assert.assertEquals("incorrect location", androidCalendar.getLocationName(), location);
+
     }
 
     @After

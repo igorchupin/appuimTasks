@@ -4,5 +4,7 @@
   "udid" : "96efa3c4b67a139e552514f05c7e75c99b40f854",
   "deviceName" : "iPhone8",
   "bundleId" : "com.apple.mobilecal",
-  "driverUrl": "http://0.0.0.0:4725/wd/hub"
+  "driverUrl": "http://0.0.0.0:4725/wd/hub",
+  "noReset" : "true",
+  "newCommandTimeout" : "10000"
 }

@@ -1,15 +1,20 @@
 package pageObjects;
 
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.LongPressOptions;
 import org.openqa.selenium.By;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import static io.appium.java_client.touch.offset.ElementOption.element;
+
 
 public class AndroidCalendar {
     AndroidDriver driver;
+    TouchAction touchAction;
 
     private By plusButton = By.id("floating_action_button");
     private By titleField = By.id("title");
@@ -25,9 +30,11 @@ public class AndroidCalendar {
     private By eventTime = By.id("timeTextView");
     private By deleteButton = By.xpath("//android.widget.Button[@content-desc=\"Delete\"]/android.widget.ImageView");
     private By noEventsText = By.id("no_events_or_tasks_text");
+    private By locationField = By.id("location");
 
     public AndroidCalendar (AndroidDriver driver) {
         this.driver = driver;
+        touchAction = new TouchAction(driver);
     }
 
     public void clickPlusButton() throws InterruptedException {
@@ -37,7 +44,7 @@ public class AndroidCalendar {
 
     public void enterEventName(String eventName) throws InterruptedException {
         driver.findElement(titleField).sendKeys(eventName);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
    public void setStartTime(int hours, int minutes) throws InterruptedException {
@@ -48,7 +55,7 @@ public class AndroidCalendar {
        driver.findElement(hourFiledInput).sendKeys(String.valueOf(hours));
        driver.findElement(minuteFiledInput).click();
        driver.findElement(minuteFiledInput).sendKeys(String.valueOf(minutes));
-       Thread.sleep(500);
+       Thread.sleep(1000);
        driver.findElement(doneButton).click();
        Thread.sleep(1000);
    }
@@ -64,6 +71,11 @@ public class AndroidCalendar {
        Thread.sleep(500);
        driver.findElement(doneButton).click();
        Thread.sleep(500);
+   }
+
+   public void setLocation(String location) {
+        driver.findElement(locationField).click();
+        driver.findElement(locationField).sendKeys(location);
    }
 
    public void saveEvent() throws InterruptedException {
@@ -84,12 +96,24 @@ public class AndroidCalendar {
        return driver.findElement(eventTime).getText();
     }
 
+    public String getLocationName () {
+        return driver.findElement(By.id("location")).getText();
+    }
+
     public void deleteEvent() throws InterruptedException {
-        driver.findElement(eventName).click();
+
+        touchAction.longPress(LongPressOptions.longPressOptions().withElement(element(driver.findElement(eventName)))).release().perform();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//android.widget.TextView[@text = 'Delete']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.id("android:id/button1")).click();
+
+
+        /*driver.findElement(eventName).click();
         Thread.sleep(500);
         driver.findElement(deleteButton).click();
         Thread.sleep(500);
-        driver.findElement(doneButton).click();
+        driver.findElement(doneButton).click(); */
     }
 
     public String getTimes (LocalDateTime start, LocalDateTime end) {

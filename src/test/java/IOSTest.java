@@ -13,11 +13,12 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-public class IOSTest {
+public class IOSTest extends GeneralTest {
 
         IOSDriver iosDriver;
         IOSCalender iosCalender;
         String eventName = "New Event test";
+        String location = "Minsk";
 
         @Before
         public void driverSetup() throws MalformedURLException {
@@ -43,6 +44,7 @@ public class IOSTest {
             iosCalender.clickToday();
             iosCalender.clickAdd();
             iosCalender.setName(eventName);
+            iosCalender.setLocation(location);
             iosCalender.setStartTime(localDateTimeStart.getHour(), localDateTimeStart.getMinute());
             iosCalender.setEndTime(localDateTimeEnd.getHour(), localDateTimeEnd.getMinute());
             iosCalender.saveEvent();
@@ -50,12 +52,12 @@ public class IOSTest {
 
             Assert.assertEquals("incorrect event name", eventName, iosCalender.getEventName());
             Assert.assertEquals("incorrect time", iosCalender.getTimes(localDateTimeStart, localDateTimeEnd), iosCalender.getEventTimes());
-
+            Assert.assertTrue("incorrect place" , iosCalender.getLocationName().contains(location));
         }
 
         @After
         public void cleanUP () throws InterruptedException {
-          iosCalender.deleteEvent();
+          iosCalender.deleteEvent(eventName);
           iosDriver.quit();
         }
 }
