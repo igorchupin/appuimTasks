@@ -1,6 +1,6 @@
 import core.Platform;
 import core.capabilities.CapabilitiesReader;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumDriver;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 public class AndroidTest extends GeneralTest {
-    AndroidDriver androidDriver;
+    AppiumDriver androidDriver;
     AndroidCalendar androidCalendar;
     String eventName = "New Event test";
     String location = "Minsk";
@@ -32,12 +32,12 @@ public class AndroidTest extends GeneralTest {
             }
         }
 
-        androidDriver = new AndroidDriver(driverURL, desiredCapabilities);
+        androidDriver = new AppiumDriver(driverURL, desiredCapabilities);
         androidCalendar = new AndroidCalendar(androidDriver);
     }
 
     @Test
-    public void calendarCreateEventTest () throws InterruptedException {
+    public void calendarCreateEventTest () {
       LocalDateTime localDateTimeStart = LocalDateTime.now().plusMinutes(60);
       LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
 
@@ -49,6 +49,8 @@ public class AndroidTest extends GeneralTest {
       androidCalendar.setLocation(location);
       androidCalendar.saveEvent();
 
+
+
       androidCalendar.openEvent(localDateTimeStart);
 
       Assert.assertEquals("incorrect event name", eventName, androidCalendar.getEventName());
@@ -58,7 +60,7 @@ public class AndroidTest extends GeneralTest {
     }
 
     @After
-    public void cleanUP () throws InterruptedException {
+    public void cleanUP () {
         androidCalendar.deleteEvent();
         androidDriver.quit();
     }

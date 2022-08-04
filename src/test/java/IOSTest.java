@@ -1,6 +1,6 @@
 import core.Platform;
 import core.capabilities.CapabilitiesReader;
-import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.AppiumDriver;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class IOSTest extends GeneralTest {
 
-        IOSDriver iosDriver;
+        AppiumDriver iosDriver;
         IOSCalender iosCalender;
         String eventName = "New Event test";
         String location = "Minsk";
@@ -32,12 +32,12 @@ public class IOSTest extends GeneralTest {
                 }
             }
 
-            iosDriver = new IOSDriver(driverURL, desiredCapabilities);
+            iosDriver = new AppiumDriver(driverURL, desiredCapabilities);
             iosCalender = new IOSCalender(iosDriver);
         }
 
         @Test
-        public void calendarCreateEventTest () throws InterruptedException {
+        public void calendarCreateEventTest ()  {
             LocalDateTime localDateTimeStart = LocalDateTime.now().plusMinutes(60);
             LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
 
