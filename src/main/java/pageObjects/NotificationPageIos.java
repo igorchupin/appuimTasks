@@ -5,6 +5,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.functions.ExpectedCondition;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
@@ -14,13 +15,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class NotificationPageIos extends GeneralPage {
+public class NotificationPageIos {
+    IOSDriver iosDriver;
 
     private final By notification = MobileBy.iOSClassChain("**/XCUIElementTypeScrollView[`label BEGINSWITH \"CALENDAR\"`]");
 
 
-    public NotificationPageIos(AppiumDriver driver) {
-        super(driver);
+    public NotificationPageIos(IOSDriver driver) {
+        this.iosDriver = driver;
     }
 
     private ExpectedCondition<MobileElement> elementPresents (By by) {
@@ -33,18 +35,17 @@ public class NotificationPageIos extends GeneralPage {
         };
     }
 
-    @Override
     public MobileElement findWithWait (By by) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 60);
+        WebDriverWait webDriverWait = new WebDriverWait(iosDriver, 60);
         return webDriverWait.until(elementPresents(by));
     }
 
     public void terminateApp (String bundle) {
-    driver.terminateApp(bundle);
+    iosDriver.terminateApp(bundle);
     }
 
     public void activateApp (String bundle) {
-        driver.activateApp(bundle);
+        iosDriver.activateApp(bundle);
     }
 
     public void showNotifications() {
@@ -60,13 +61,13 @@ public class NotificationPageIos extends GeneralPage {
     }
 
     private void manageNotifications(Boolean show) {
-        Dimension screenSize = driver.manage().window().getSize();
+        Dimension screenSize = iosDriver.manage().window().getSize();
         int yMargin = 5;
         int xMid = screenSize.width / 2;
         PointOption top = PointOption.point(xMid, yMargin);
         PointOption bottom = PointOption.point(xMid, screenSize.height - yMargin);
 
-        TouchAction action = new TouchAction(driver);
+        TouchAction action = new TouchAction(iosDriver);
         if (show) {
             action.press(top);
         } else {

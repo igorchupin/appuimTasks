@@ -1,27 +1,34 @@
 import core.Platform;
+import core.SingletonDriver;
+import core.TestListeners;
 import core.capabilities.CapabilitiesReader;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pageObjects.AndroidCalendar;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Map;
 
+@ExtendWith(TestListeners.class)
+
 public class AndroidTest extends GeneralTest {
-    AppiumDriver androidDriver;
+    AndroidDriver androidDriver;
     AndroidCalendar androidCalendar;
     String eventName = "New Event test";
     String location = "Minsk";
 
 
     @Before
-    public void driverSetup() throws MalformedURLException {
+    public void driverSetup() throws IOException {
         Map<String, String> capabilities = CapabilitiesReader.capabilitiesRead(Platform.Android);
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         URL driverURL = new URL(capabilities.get("driverUrl"));
@@ -32,7 +39,8 @@ public class AndroidTest extends GeneralTest {
             }
         }
 
-        androidDriver = new AppiumDriver(driverURL, desiredCapabilities);
+        //androidDriver = new AndroidDriver(driverURL, desiredCapabilities);
+        androidDriver = SingletonDriver.getDriverInstance(Platform.Android, desiredCapabilities, driverURL).androidDriver;
         androidCalendar = new AndroidCalendar(androidDriver);
     }
 

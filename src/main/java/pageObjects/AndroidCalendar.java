@@ -2,6 +2,10 @@ package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.touch.LongPressOptions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,11 +13,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import static io.appium.java_client.touch.offset.ElementOption.element;
 
 
-public class AndroidCalendar extends GeneralPage {
+public class AndroidCalendar {
+
+    private AndroidDriver androidDriver;
+    private TouchAction touchAction;
 
     private final By plusButton = By.id("floating_action_button");
     private final By titleField = By.id("title");
@@ -31,8 +39,9 @@ public class AndroidCalendar extends GeneralPage {
     private final By noEventsText = By.id("no_events_or_tasks_text");
     private final By locationField = By.id("location");
 
-    public AndroidCalendar(AppiumDriver driver) {
-        super(driver);
+    public AndroidCalendar(AndroidDriver driver) {
+        androidDriver = driver;
+        touchAction = new TouchAction(driver);
     }
 
     public void clickPlusButton() {
@@ -54,8 +63,8 @@ public class AndroidCalendar extends GeneralPage {
 
    public void setEndTime(int hours, int minutes) {
        findWithWait(end).click();
-       new WebDriverWait (driver, 5).until(ExpectedConditions.elementToBeClickable(hour));
-       driver.findElement(hour).click();
+       new WebDriverWait (androidDriver, 5).until(ExpectedConditions.elementToBeClickable(hour));
+       androidDriver.findElement(hour).click();
        findWithWait(hourFiledInput).sendKeys(String.valueOf(hours));
        findWithWait(minuteFiledInput).click();
        findWithWait(minuteFiledInput).sendKeys(String.valueOf(minutes));
@@ -105,6 +114,21 @@ public class AndroidCalendar extends GeneralPage {
     public String getTimes(LocalDateTime start, LocalDateTime end) {
         DateTimeFormatter.ofPattern("mm");
         return start.getHour() + ":" + start.format(DateTimeFormatter.ofPattern("mm")) + " - " + end.getHour() + ":" + end.format(DateTimeFormatter.ofPattern("mm"));
+    }
+
+    private ExpectedCondition<MobileElement> elementPresents (By by) {
+        return driver -> {
+            List<MobileElement> list;
+            list = driver.findElements(by);
+            if (list.size() > 0 && list.get(0).isDisplayed() && list.get(0).isEnabled()) {
+                return list.get(0);
+            } else return null;
+        };
+    }
+
+    public MobileElement findWithWait (By by) {
+        WebDriverWait webDriverWait = new WebDriverWait(androidDriver, 6);
+        return webDriverWait.until(elementPresents(by));
     }
 }
 

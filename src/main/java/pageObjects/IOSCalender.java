@@ -2,15 +2,24 @@ package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.functions.ExpectedCondition;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static io.appium.java_client.touch.offset.ElementOption.element;
 
-public class IOSCalender extends GeneralPage{
+public class IOSCalender {
+
+    private IOSDriver iosDriver;
+    private TouchAction touchAction;
 
     private final By continueButton = MobileBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"SplashScreen\"`]/XCUIElementTypeOther/XCUIElementTypeOther[2]");
     private final By allowWhileUsing = MobileBy.AccessibilityId("Allow While Using App");
@@ -38,8 +47,9 @@ public class IOSCalender extends GeneralPage{
     private final By eventLocation = MobileBy.iOSClassChain("**/XCUIElementTypeTable[`name == \"EventDetailsContainer\"`]/XCUIElementTypeCell/XCUIElementTypeTextView");
 
 
-    public IOSCalender(AppiumDriver driver) {
-        super(driver);
+    public IOSCalender(IOSDriver driver) {
+       iosDriver = driver;
+       touchAction = new TouchAction(driver);
     }
     /*
         public void clickContinueAndGrantPermission() throws InterruptedException {
@@ -68,13 +78,13 @@ public class IOSCalender extends GeneralPage{
     public void setStartTime(int hours, int minutes) {
         findWithWait(timeFieldStart).click();
         findWithWait(hoursValue).sendKeys(String.valueOf(hours));
-        driver.findElement(minutesValue).sendKeys(String.valueOf(minutes)); //sometimes do not works sometimes works. I do not know what to do =(
+        iosDriver.findElement(minutesValue).sendKeys(String.valueOf(minutes)); //sometimes do not works sometimes works. I do not know what to do =(
     }
 
     public void setEndTime(int hours, int minutes) {
         findWithWait(timeFieldEnd).click();
         findWithWait(hoursValue).sendKeys(String.valueOf(hours));
-        driver.findElement(minutesValue).sendKeys(String.valueOf(minutes)); //sometimes do not works sometimes works. I do not know what to do =(
+        iosDriver.findElement(minutesValue).sendKeys(String.valueOf(minutes)); //sometimes do not works sometimes works. I do not know what to do =(
     }
 
     public void saveEvent() {
@@ -122,5 +132,20 @@ public class IOSCalender extends GeneralPage{
     public String getTimes(LocalDateTime start, LocalDateTime end) {
         return "from " + start.getHour() + ":" + "00" + " to " + end.getHour() + ":" + "00";
         // return "from " + time[0] + ":" + time[1] + " to " + time[2] + ":" + time[3];
+    }
+
+    private ExpectedCondition<MobileElement> elementPresents (By by) {
+        return driver -> {
+            List<MobileElement> list;
+            list = driver.findElements(by);
+            if (list.size() > 0 && list.get(0).isDisplayed() && list.get(0).isEnabled()) {
+                return list.get(0);
+            } else return null;
+        };
+    }
+
+    public MobileElement findWithWait (By by) {
+        WebDriverWait webDriverWait = new WebDriverWait(iosDriver, 6);
+        return webDriverWait.until(elementPresents(by));
     }
 }
