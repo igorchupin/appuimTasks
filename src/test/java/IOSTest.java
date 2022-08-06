@@ -1,6 +1,11 @@
+import core.FailedTestsTools;
 import core.Platform;
 import core.capabilities.CapabilitiesReader;
 import io.appium.java_client.ios.IOSDriver;
+import io.qameta.allure.Description;
+import io.qameta.allure.TmsLink;
+import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.junit4.Tag;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -36,7 +41,11 @@ public class IOSTest extends GeneralTest {
             iosCalender = new IOSCalender(iosDriver);
         }
 
-        @Test
+    @TmsLink(value = "3T")
+    @Description(value = "Create event")
+    @Test
+    @Tag("ios")
+    @DisplayName("Create event")
         public void calendarCreateEventTest ()  {
             LocalDateTime localDateTimeStart = LocalDateTime.now().plusMinutes(60);
             LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
@@ -57,6 +66,7 @@ public class IOSTest extends GeneralTest {
 
         @After
         public void cleanUP () {
+          FailedTestsTools.attachAll(iosDriver);
           iosCalender.deleteEvent(eventName);
           iosDriver.quit();
         }

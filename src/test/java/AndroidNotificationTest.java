@@ -1,24 +1,23 @@
+import core.FailedTestsTools;
 import core.Platform;
 import core.SingletonDriver;
 import core.TestListeners;
 import core.capabilities.CapabilitiesReader;
 import io.appium.java_client.android.AndroidDriver;
-import io.qameta.allure.Allure;
-import io.qameta.allure.Attachment;
+import io.qameta.allure.Description;
+import io.qameta.allure.TmsLink;
+import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.junit4.Tag;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pageObjects.AndroidCalendar;
 import pageObjects.NotificationPageAndroid;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -57,7 +56,11 @@ public class AndroidNotificationTest extends GeneralTest {
         packageName = capabilities.get("appPackage");
     }
 
+    @TmsLink(value = "1T")
+    @Description(value = "Create event and check notification")
     @Test
+    @Tag("android")
+    @DisplayName("Create event and check notification")
     public void calendarCreateEventTest () {
         localDateTimeStart = LocalDateTime.now().plusMinutes(1);
         LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
@@ -78,29 +81,12 @@ public class AndroidNotificationTest extends GeneralTest {
     }
 
     @After
-    public void cleanUP () throws IOException {
-        attachScreenshot();
-        plattform();
+    public void cleanUP ()  {
+        FailedTestsTools.attachAll(androidDriver);
         notificationPageAndroid.closeNotifications();
         androidDriver.activateApp(packageName);
         androidCalendar.openEvent(localDateTimeStart);
         androidCalendar.deleteEvent();
         androidDriver.quit();
-    }
-
-    @Attachment(value = "ScreenShot", type = "image/png")
-    public  byte[] attachScreenshot() throws IOException {
-        return androidDriver.getScreenshotAs(OutputType.BYTES);
-    }
-
-    @Attachment
-    public String plattform () {
-        Capabilities cap;
-        cap = androidDriver.getCapabilities();
-
-        String platformName = cap.getPlatform().name();
-        String device = cap.getCapability("automationName").toString();
-        Allure.addAttachment("Date time" , "Platform " + platformName + "automationName " + device);
-        return "Platform " + platformName + "automationName " + device;
     }
 }

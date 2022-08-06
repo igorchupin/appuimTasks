@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class TestListeners implements TestWatcher {
-    FailedTestsTools make = new FailedTestsTools();
+  /*  FailedTestsTools make = new FailedTestsTools();
 
     @Override
     public void testAborted(ExtensionContext extensionContext, Throwable throwable) {
@@ -48,5 +48,5 @@ public class TestListeners implements TestWatcher {
             e.printStackTrace();
         }
         FailedTestsTools.attachDateAndTime();
-    }
+    } */
 }

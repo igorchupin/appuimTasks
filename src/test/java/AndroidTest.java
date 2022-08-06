@@ -1,24 +1,24 @@
+import core.FailedTestsTools;
 import core.Platform;
 import core.SingletonDriver;
-import core.TestListeners;
 import core.capabilities.CapabilitiesReader;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.Description;
+import io.qameta.allure.TmsLink;
+import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.junit4.Tag;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pageObjects.AndroidCalendar;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-@ExtendWith(TestListeners.class)
 
 public class AndroidTest extends GeneralTest {
     AndroidDriver androidDriver;
@@ -44,7 +44,11 @@ public class AndroidTest extends GeneralTest {
         androidCalendar = new AndroidCalendar(androidDriver);
     }
 
+    @TmsLink(value = "4T")
+    @Description(value = "Create event no check notification")
     @Test
+    @Tag("android")
+    @DisplayName("Create event and no check notification")
     public void calendarCreateEventTest () {
       LocalDateTime localDateTimeStart = LocalDateTime.now().plusMinutes(60);
       LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
@@ -57,8 +61,6 @@ public class AndroidTest extends GeneralTest {
       androidCalendar.setLocation(location);
       androidCalendar.saveEvent();
 
-
-
       androidCalendar.openEvent(localDateTimeStart);
 
       Assert.assertEquals("incorrect event name", eventName, androidCalendar.getEventName());
@@ -69,6 +71,7 @@ public class AndroidTest extends GeneralTest {
 
     @After
     public void cleanUP () {
+        FailedTestsTools.attachAll(androidDriver);
         androidCalendar.deleteEvent();
         androidDriver.quit();
     }

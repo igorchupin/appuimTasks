@@ -1,6 +1,11 @@
+import core.FailedTestsTools;
 import core.Platform;
 import core.capabilities.CapabilitiesReader;
 import io.appium.java_client.ios.IOSDriver;
+import io.qameta.allure.Description;
+import io.qameta.allure.TmsLink;
+import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.junit4.Tag;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -42,7 +47,11 @@ public class IOSNotificationTest extends GeneralTest {
         notificationPageIos = new NotificationPageIos(iosDriver);
     }
 
+    @TmsLink(value = "2T")
+    @Description(value = "Create event and check notification")
     @Test
+    @Tag("ios")
+    @DisplayName("Create event and check notification")
     public void calendarCreateEventTest ()  {
         LocalDateTime localDateTimeStart = LocalDateTime.now().plusMinutes(1);
         LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
@@ -70,6 +79,7 @@ public class IOSNotificationTest extends GeneralTest {
 
     @After
     public void cleanUP () {
+        FailedTestsTools.attachAll(iosDriver);
         notificationPageIos.hideNotifications();
         notificationPageIos.activateApp(bundleID);
         iosCalender.deleteEvent(eventName);
