@@ -39,8 +39,7 @@ public class AndroidTest extends GeneralTest {
             }
         }
 
-        //androidDriver = new AndroidDriver(driverURL, desiredCapabilities);
-        androidDriver = SingletonDriver.getDriverInstance(Platform.Android, desiredCapabilities, driverURL).androidDriver;
+        androidDriver = new AndroidDriver(driverURL, desiredCapabilities);
         androidCalendar = new AndroidCalendar(androidDriver);
     }
 

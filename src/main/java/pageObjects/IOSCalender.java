@@ -92,11 +92,12 @@ public class IOSCalender {
     }
 
     public void openEvent(String name) {
+        touchAction.press(PointOption.point(100, 100)).moveTo(PointOption.point(0, 0)).release().perform();
         findWithWait(MobileBy.iOSClassChain(String.format(eventLocatorPattern, name))).click();
     }
 
     public String getEventName() {
-        touchAction.press(PointOption.point(100, 100)).moveTo(PointOption.point(0, 0)).release().perform();
+        //touchAction.press(PointOption.point(100, 100)).moveTo(PointOption.point(0, 0)).release().perform();
         return findWithWait(eventName).getAttribute("name");
     }
 

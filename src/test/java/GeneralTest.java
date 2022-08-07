@@ -62,6 +62,11 @@ import java.io.InputStreamReader;
         public static void stopAppiumServer ()  {
             System.out.println("Stopping Appium Server");
             executeCommand(stopServerCommand);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println("Stopped Appium Server");
         }
     }

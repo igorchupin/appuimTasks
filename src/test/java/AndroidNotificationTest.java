@@ -49,8 +49,7 @@ public class AndroidNotificationTest extends GeneralTest {
             }
         }
 
-        //androidDriver = new AndroidDriver(driverURL, desiredCapabilities);
-        androidDriver = SingletonDriver.getDriverInstance(Platform.Android, desiredCapabilities, driverURL).androidDriver;
+        androidDriver = new AndroidDriver(driverURL, desiredCapabilities);
         androidCalendar = new AndroidCalendar(androidDriver);
         notificationPageAndroid = new NotificationPageAndroid(androidDriver);
         packageName = capabilities.get("appPackage");
@@ -61,7 +60,7 @@ public class AndroidNotificationTest extends GeneralTest {
     @Test
     @Tag("android")
     @DisplayName("Create event and check notification")
-    public void calendarCreateEventTest () {
+    public void calendarCreateEventTestNotification () {
         localDateTimeStart = LocalDateTime.now().plusMinutes(1);
         LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
 

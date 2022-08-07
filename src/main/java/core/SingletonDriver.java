@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class SingletonDriver {
 
-    private static SingletonDriver singleDriver = null;
+  /*  private static SingletonDriver singleDriver = null;
     public static IOSDriver iosDriver;
     public static AndroidDriver androidDriver;
     public static AppiumDriver appiumDriver;
@@ -53,12 +53,12 @@ public class SingletonDriver {
         if (singleDriver != null) {
             switch (platform){
                 case Android:
-                    androidDriver.close();
+                    androidDriver.quit();
                 case iOS:
                     iosDriver.close();
             }
             singleDriver = null;
             appiumDriver = null;
         }
-    }
+    } */
 }

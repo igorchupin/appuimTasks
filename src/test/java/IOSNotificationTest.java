@@ -6,10 +6,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pageObjects.IOSCalender;
 import pageObjects.NotificationPageIos;
@@ -52,7 +49,7 @@ public class IOSNotificationTest extends GeneralTest {
     @Test
     @Tag("ios")
     @DisplayName("Create event and check notification")
-    public void calendarCreateEventTest ()  {
+    public void calendarCreateEventTestNotification ()  {
         LocalDateTime localDateTimeStart = LocalDateTime.now().plusMinutes(1);
         LocalDateTime localDateTimeEnd = localDateTimeStart.plusMinutes(90);
         DateTimeFormatter.ofPattern("hh-mm");
