@@ -10,8 +10,11 @@ import java.io.Reader;
 import java.util.Map;
 
 public class CapabilitiesReader {
-    private static String androidCapabilitiesPath = "src/main/resources/androidCapabilities.json";
-    private static String iOSCapabilitiesPath = "src/main/resources/iosCapabilities.json";
+    //private static String androidCapabilitiesPath = "src/main/resources/androidCapabilities.json";
+    private static String androidCapabilitiesPath = "src/main/resources/androidCapabilitiesMail.json";
+    //private static String iOSCapabilitiesPath = "src/main/resources/iosCapabilities.json";
+    private static String iOSCapabilitiesPath = "src/main/resources/IosReminderCapabilities.json";
+
     private static Gson gson = new Gson();
     private static Reader reader;
     private static Map<String, String> capabilities;

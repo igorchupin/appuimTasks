@@ -1,0 +1,10 @@
+{
+  "platformName" : "Android",
+  "automationName": "UIAutomator2",
+  "udid" : "98897a304a4c415157",
+  "appPackage" : "com.google.android.gm",
+  "appActivity" : "ConversationListActivityGmail",
+  "driverUrl": "http://0.0.0.0:4725/wd/hub",
+  "noReset" : "true",
+  "newCommandTimeout" : "10000"
+}
